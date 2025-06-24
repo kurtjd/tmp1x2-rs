@@ -230,6 +230,12 @@
 #![deny(missing_docs)]
 #![no_std]
 
+#[cfg(any(
+    feature = "embedded-sensors-hal",
+    feature = "embedded-sensors-hal-async"
+))]
+mod sensor_hal;
+
 use core::marker::PhantomData;
 #[cfg(not(feature = "async"))]
 use embedded_hal::i2c::I2c;
